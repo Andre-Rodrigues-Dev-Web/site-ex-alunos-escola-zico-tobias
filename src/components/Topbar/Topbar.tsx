@@ -1,28 +1,25 @@
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { theme } from '../../styles/GlobalStyles'
 import { FiCamera, FiMail } from 'react-icons/fi'
 
-const marquee = keyframes`
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-`
-
 const TopbarWrapper = styled.div`
   background-color: ${theme.colors.primary};
-  overflow: hidden;
-  padding: 6px 0;
+  padding: 7px 24px;
   position: relative;
   z-index: 10;
 `
 
-const MarqueeTrack = styled.div`
+const TopbarInner = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  white-space: nowrap;
-  animation: ${marquee} 30s linear infinite;
-  gap: 80px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
 `
 
-const MarqueeText = styled.span`
+const TopbarItem = styled.span`
   font-size: 0.82rem;
   font-weight: 500;
   color: ${theme.colors.white};
@@ -42,30 +39,24 @@ const MarqueeText = styled.span`
   }
 `
 
-const Separator = styled.span`
-  color: rgba(255,255,255,0.4);
-  margin: 0 20px;
-`
-
 export function Topbar() {
-  const message = 'Envie suas fotos e vídeos para nós! Clique aqui e saiba mais.'
-  const secondary = 'Ajude a manter esse história viva'
-
   return (
     <TopbarWrapper>
-      <MarqueeTrack>
-        {[...Array(4)].map((_, i) => (
-          <MarqueeText key={i}>
-            <FiCamera size={13} />
-            O site{' '}
-            <Separator>•</Separator>
-            <a href="mailto:contato@exalunoszerobias.com.br">{message}</a>
-            <Separator>•</Separator>
-            <FiMail size={13} />
-            {secondary}
-          </MarqueeText>
-        ))}
-      </MarqueeTrack>
+      <TopbarInner>
+        <TopbarItem>
+          <FiCamera size={13} />
+          O site
+        </TopbarItem>
+        <TopbarItem>
+          <a href="mailto:contato@exalunoszerobias.com.br">
+            Envie suas fotos e vídeos para nós! Clique aqui e saiba mais.
+          </a>
+        </TopbarItem>
+        <TopbarItem>
+          <FiMail size={13} />
+          Ajude a manter esse história viva
+        </TopbarItem>
+      </TopbarInner>
     </TopbarWrapper>
   )
 }
