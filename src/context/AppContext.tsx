@@ -1,40 +1,8 @@
 import { createContext, useContext, useState, useCallback, type ReactNode } from 'react'
-
-interface NostalgiaCard {
-  id: number
-  title: string
-  thumbnail: string
-  type: 'video' | 'foto'
-  url?: string
-}
-
-interface AppContextType {
-  isMenuOpen: boolean
-  setIsMenuOpen: (open: boolean) => void
-  toggleMenu: () => void
-  isAudioPlaying: boolean
-  toggleAudio: () => void
-  nostalgiaCards: NostalgiaCard[]
-  sponsors: { id: number; name: string; logo: string }[]
-  loading: boolean
-}
+import type { AppContextType } from './AppContext.types'
+import { mockNostalgiaCards, mockSponsors } from './AppContext.mocks'
 
 const AppContext = createContext<AppContextType | undefined>(undefined)
-
-const mockNostalgiaCards: NostalgiaCard[] = [
-  { id: 1, title: 'Vídeo do Baile do Sinal na Escola Zico Tobias', thumbnail: '', type: 'video' },
-  { id: 2, title: 'Vídeo festival de talentos 2011', thumbnail: '', type: 'video' },
-  { id: 3, title: 'Festa Junina Escola Zico Tobias', thumbnail: '', type: 'foto' },
-  { id: 4, title: 'Professores que deixaram saudades', thumbnail: '', type: 'foto' },
-  { id: 5, title: 'Festas da escola que foram destaques', thumbnail: '', type: 'foto' },
-  { id: 6, title: 'Festas da escola que foram destaques', thumbnail: '', type: 'foto' },
-]
-
-const mockSponsors = [
-  { id: 1, name: 'Apoiador 1', logo: '' },
-  { id: 2, name: 'Apoiador 2', logo: '' },
-  { id: 3, name: 'Apoiador 3', logo: '' },
-]
 
 export function AppProvider({ children }: { children: ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

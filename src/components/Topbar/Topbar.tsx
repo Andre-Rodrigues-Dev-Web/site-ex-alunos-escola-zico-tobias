@@ -1,43 +1,6 @@
-import styled from 'styled-components'
-import { theme } from '../../styles/GlobalStyles'
-import { FiCamera, FiMail } from 'react-icons/fi'
-
-const TopbarWrapper = styled.div`
-  background-color: ${theme.colors.primary};
-  padding: 7px 24px;
-  position: relative;
-  z-index: 10;
-`
-
-const TopbarInner = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-`
-
-const TopbarItem = styled.span`
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: ${theme.colors.white};
-  letter-spacing: 0.02em;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  a {
-    color: ${theme.colors.accentYellow};
-    font-weight: 700;
-    text-decoration: underline;
-
-    &:hover {
-      opacity: 0.85;
-    }
-  }
-`
+import { Link } from 'react-router-dom'
+import { FiCamera, FiHeart } from 'react-icons/fi'
+import { TopbarWrapper, TopbarInner, TopbarItem } from './Topbar.styles'
 
 export function Topbar() {
   return (
@@ -48,13 +11,17 @@ export function Topbar() {
           O site
         </TopbarItem>
         <TopbarItem>
-          <a href="mailto:contato@exalunoszerobias.com.br">
+          <a
+            href="https://wa.me/5537999262829?text=Ol%C3%A1!%20Quero%20enviar%20fotos%20e%20v%C3%ADdeos%20para%20o%20site%20Ex-Alunos%20Zico%20Tobias.%20Pode%20me%20ajudar%3F"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Envie suas fotos e vídeos para nós! Clique aqui e saiba mais.
           </a>
         </TopbarItem>
         <TopbarItem>
-          <FiMail size={13} />
-          Ajude a manter esse história viva
+          <FiHeart size={13} />
+          <Link to="/apoie">Ajude a manter essa história viva</Link>
         </TopbarItem>
       </TopbarInner>
     </TopbarWrapper>

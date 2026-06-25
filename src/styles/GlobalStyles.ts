@@ -5,18 +5,18 @@ export const theme = {
     primary: '#1a7a2e',
     primaryDark: '#145e22',
     primaryLight: '#22a33d',
-    primaryGlow: 'rgba(26, 122, 46, 0.15)',
-    accent: '#4cde72',
-    accentYellow: '#f5c842',
-    dark: '#0d1117',
-    darkSurface: '#161b22',
-    darkElevated: '#21262d',
-    text: '#e6edf3',
-    textMuted: '#8b949e',
-    textLight: '#c9d1d9',
-    border: '#30363d',
+    primaryGlow: 'rgba(26, 122, 46, 0.1)',
+    accent: '#1a7a2e',
+    accentYellow: '#b45309',
+    dark: '#ffffff',
+    darkSurface: '#f4f6f8',
+    darkElevated: '#e8ecef',
+    text: '#111827',
+    textMuted: '#6b7280',
+    textLight: '#374151',
+    border: '#d1d5db',
     white: '#ffffff',
-    red: '#da3633',
+    red: '#dc2626',
   },
   fonts: {
     body: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
@@ -28,9 +28,10 @@ export const theme = {
     full: '9999px',
   },
   shadows: {
-    card: '0 4px 24px rgba(0, 0, 0, 0.4)',
-    glow: '0 0 20px rgba(26, 122, 46, 0.4)',
-    glowAccent: '0 0 30px rgba(76, 222, 114, 0.3)',
+    card: '0 2px 16px rgba(0, 0, 0, 0.08)',
+    glow: '0 0 16px rgba(26, 122, 46, 0.25)',
+    glowAccent: '0 0 24px rgba(26, 122, 46, 0.2)',
+    header: '0 1px 8px rgba(0,0,0,0.08)',
   },
   transitions: {
     fast: '0.15s ease',
@@ -88,7 +89,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-track {
-    background: ${theme.colors.dark};
+    background: ${theme.colors.darkSurface};
   }
 
   ::-webkit-scrollbar-thumb {
